@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أو كرييشن للسفر والسياحة | نحوّل الأحلام إلى حقيقة</title>
+    <meta name="description" content="Premium travel & tourism agency based in Guruvayur, Kerala. Offering domestic & international tours, honeymoon packages, and more. ISO 9001:2015 certified.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ====== UAE LAUNCH ANNOUNCEMENT POPUP ====== -->
+    <div class="launch-overlay" id="launch-overlay">
+        <div class="launch-popup" id="launch-popup" role="dialog" aria-modal="true" aria-labelledby="launch-title">
+
+            <!-- Decorative top bar -->
+            <div class="launch-topbar"></div>
+
+            <!-- Close button -->
+            <button class="launch-close" id="launch-close" aria-label="Close announcement">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Flag + badge row -->
+            <div class="launch-badge-row">
+                <span class="launch-flag">🇦🇪</span>
+                <span class="launch-badge" data-i18n="popup_badge">أخبار مثيرة</span>
+            </div>
+
+            <!-- Brand Logo -->
+            <div class="launch-logo-wrap">
+                <div class="launch-logo-frame">
+                    <img src="assets/logo.png" alt="O Creation" class="launch-logo">
+                </div>
+            </div>
+
+            <!-- Headline -->
+            <h2 class="launch-title" id="launch-title" data-i18n="popup_title">نحن قادمون إلى <span>الإمارات!</span></h2>
+            <p class="launch-subtitle" data-i18n="popup_subtitle">أو كرييشن للسفر والسياحة تتوسع رسمياً <br>إلى الإمارات العربية المتحدة.</p>
+
+            <!-- Launch date display -->
+            <div class="launch-date-block">
+                <div class="launch-date-icon"><i class="fas fa-calendar-star"></i></div>
+                <div>
+                    <span class="launch-date-label" data-i18n="popup_date_label">تاريخ الإطلاق الرسمي</span>
+                    <span class="launch-date-value" data-i18n="popup_date_value">٢٣ مايو ٢٠٢٦</span>
+                </div>
+            </div>
+
+            <!-- Live countdown -->
+            <div class="launch-countdown" id="launch-countdown">
+                <div class="cd-unit" id="cd-days">
+                    <span class="cd-num">--</span>
+                    <span class="cd-label" data-i18n="cd_days">أيام</span>
+                </div>
+                <div class="cd-sep">:</div>
+                <div class="cd-unit" id="cd-hours">
+                    <span class="cd-num">--</span>
+                    <span class="cd-label" data-i18n="cd_hours">ساعات</span>
+                </div>
+                <div class="cd-sep">:</div>
+                <div class="cd-unit" id="cd-mins">
+                    <span class="cd-num">--</span>
+                    <span class="cd-label" data-i18n="cd_mins">دقائق</span>
+                </div>
+                <div class="cd-sep">:</div>
+                <div class="cd-unit" id="cd-secs">
+                    <span class="cd-num">--</span>
+                    <span class="cd-label" data-i18n="cd_secs">ثوانٍ</span>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <a href="#contact" class="btn btn-primary launch-cta" id="launch-cta" data-i18n="popup_cta">
+                <i class="fas fa-arrow-left"></i>&nbsp; سجّل اهتمامك
+            </a>
+
+            <!-- Decorative bottom glow -->
+            <div class="launch-glow"></div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo logo-link">
+                <img src="assets/logo.png" alt="O Creation" class="logo-img">
+                <div class="logo-wordmark">
+                    <span class="logo-wordmark-name">O Creation</span>
+                    <span class="logo-wordmark-sub">Travel &amp; Tourism</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="#home" data-i18n="nav_home">الرئيسية</a>
+                <a href="#services" data-i18n="nav_services">الخدمات</a>
+                <a href="#destinations" data-i18n="nav_destinations">الوجهات</a>
+                <a href="#vision" data-i18n="nav_about">من نحن</a>
+                <a href="#leadership" data-i18n="nav_team">فريقنا</a>
+                <a href="#contact" class="btn btn-primary nav-btn" data-i18n="nav_enquire">استفسر الآن</a>
+
+                <!-- Language Toggle -->
+                <button class="lang-toggle" id="lang-toggle-btn" aria-label="Switch language">
+                    <i class="fas fa-globe"></i>
+                    <span class="lang-toggle-text">English</span>
+                </button>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Canvas for particle effect -->
+        <canvas id="hero-particles"></canvas>
+
+        <!-- Static Background Image -->
+        <div class="hero-image-wrapper" style="position: absolute; top:0; left:0; width:100%; height:100%; z-index:0; overflow:hidden;">
+            <img src="assets/kashmir-bg.jpg" 
+                 class="hero-video hero-vid-active" 
+                 alt="Kashmir Lake Tourist Boat Background" 
+                 style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="hero-overlay"></div>
+        
+        <div class="container hero-content">
+            <div class="hero-text-box reveal-up">
+                <p class="tagline" data-i18n="hero_tagline">وكالة معتمدة ISO 9001:2015</p>
+                <h1 class="hero-title" data-i18n="hero_title">نحوّل الأحلام <br><span>إلى حقيقة</span></h1>
+                <p class="hero-desc" data-i18n="hero_desc">استمتع برحلات سينمائية فاخرة مصممة خصيصاً لشغفك بالسفر. من قلب غوروفايور إلى الإمارات وما بعدها.</p>
+                
+                <div class="hero-actions">
+                    <a href="#destinations" class="btn btn-primary btn-lg" data-i18n="hero_btn_explore">استكشف الباقات</a>
+                    <a href="#contact" class="btn btn-outline btn-lg" data-i18n="hero_btn_expert">تحدث مع خبير</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-num" data-i18n="hero_stat_travelers_num">+٥٠٠</span>
+                        <span class="stat-label" data-i18n="hero_stat_travelers">مسافر سعيد</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-num" data-i18n="hero_stat_dest_num">+٤٠</span>
+                        <span class="stat-label" data-i18n="hero_stat_destinations">وجهة</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-num">5<i class="fas fa-star" style="color: var(--gold); font-size: 0.8rem; margin-left: 5px;"></i></span>
+                        <span class="stat-label" data-i18n="hero_stat_rating">تقييم العملاء</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Search/Filter Glass Card -->
+            <div class="hero-search-card tilt-card reveal-up" style="transition-delay: 0.2s;">
+                <h3 data-i18n="hero_search_title">ابحث عن مغامرتك القادمة</h3>
+                <form class="search-form" onsubmit="sendSearchWhatsApp(event)">
+                    <div class="form-group">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="search-where" placeholder="إلى أين؟" data-i18n-ph="ph_where">
+                    </div>
+                    <div style="display:flex; gap:1rem; width:100%;">
+                        <div class="form-group form-group-date" style="flex:1;">
+                            <i class="fas fa-calendar-alt"></i>
+                            <input type="text" id="search-when-start" class="date-input" placeholder="تاريخ البداية" data-i18n-ph="ph_start_date" onfocus="(this.type='date')" onblur="(this.value==''?this.type='text':this.type='date')">
+                        </div>
+                        <div class="form-group form-group-date" style="flex:1;">
+                            <i class="fas fa-calendar-check"></i>
+                            <input type="text" id="search-when-end" class="date-input" placeholder="تاريخ النهاية" data-i18n-ph="ph_end_date" onfocus="(this.type='date')" onblur="(this.value==''?this.type='text':this.type='date')">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-user-friends"></i>
+                        <input type="number" id="search-guests" placeholder="عدد الضيوف" data-i18n-ph="ph_guests" min="1">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-search">
+                        <i class="fab fa-whatsapp"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <p data-i18n="scroll_text">مرّر للاستكشاف</p>
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section-padding" id="services">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h4 class="subtitle" data-i18n="services_subtitle">ما نقدمه</h4>
+                <h2 class="title" data-i18n="services_title">خدمات سفر مميزة</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card glass-panel reveal-up">
+                    <div class="service-icon"><i class="fas fa-globe-americas"></i></div>
+                    <h3 data-i18n="svc1_title">جولات محلية ودولية</h3>
+                    <p data-i18n="svc1_desc">باقات سياحية مختارة مصممة لأقصى درجات الراحة وتجارب مذهلة حول العالم.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card glass-panel reveal-up" style="transition-delay: 0.1s;">
+                    <div class="service-icon"><i class="fas fa-heart"></i></div>
+                    <h3 data-i18n="svc2_title">باقات شهر العسل</h3>
+                    <p data-i18n="svc2_desc">إجازات رومانسية مصممة بعناية لتمنحك ذكريات تدوم مدى الحياة في وجهات ساحرة.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card glass-panel reveal-up" style="transition-delay: 0.2s;">
+                    <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3 data-i18n="svc3_title">الرحلات التعليمية</h3>
+                    <p data-i18n="svc3_desc">رحلات تعليمية ملهمة توازن بين المرح والتعلم والانغماس الثقافي.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card glass-panel reveal-up" style="transition-delay: 0.3s;">
+                    <div class="service-icon"><i class="fas fa-passport"></i></div>
+                    <h3 data-i18n="svc4_title">مساعدة التأشيرة وجواز السفر</h3>
+                    <p data-i18n="svc4_desc">دعم سلس للوثائق والمعاملات لتلبية احتياجات سفرك.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card glass-panel reveal-up" style="transition-delay: 0.4s;">
+                    <div class="service-icon"><i class="fas fa-hotel"></i></div>
+                    <h3 data-i18n="svc5_title">حجوزات الفنادق والطيران</h3>
+                    <p data-i18n="svc5_desc">إقامات فاخرة وترتيبات سفر سلسة بأفضل الأسعار التنافسية.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card glass-panel reveal-up" style="transition-delay: 0.5s;">
+                    <div class="service-icon"><i class="fas fa-users"></i></div>
+                    <h3 data-i18n="svc6_title">رحلات المجموعات والشركات</h3>
+                    <p data-i18n="svc6_desc">رحلات جماعية وخلوات مؤسسية منظمة بسلاسة ومصممة وفقاً لأهداف مؤسستك.</p>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="service-card glass-panel reveal-up" style="transition-delay: 0.6s;">
+                    <div class="service-icon"><i class="fas fa-kaaba"></i></div>
+                    <h3 data-i18n="svc7_title">الحج والعمرة</h3>
+                    <p data-i18n="svc7_desc">رحلات روحانية مقدسة منظمة بعناية وراحة وإخلاص في كل خطوة.</p>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="service-card glass-panel reveal-up" style="transition-delay: 0.7s;">
+                    <div class="service-icon"><i class="fas fa-person-hiking"></i></div>
+                    <h3 data-i18n="svc8_title">رحلات فردية</h3>
+                    <p data-i18n="svc8_desc">تجارب سفر فردية مُلهمة مصممة للباحثين عن المغامرة المستعدين لاستكشاف العالم بشكل مستقل.</p>
+                </div>
+
+                <!-- Service 9 -->
+                <div class="service-card glass-panel reveal-up" style="transition-delay: 0.8s;">
+                    <div class="service-icon"><i class="fas fa-concierge-bell"></i></div>
+                    <h3 data-i18n="svc9_title">حجز الفنادق والمنتجعات</h3>
+                    <p data-i18n="svc9_desc">فنادق ومنتجعات فاخرة مختارة بعناية تضمن إقامة عالمية المستوى في كل وجهة تزورها.</p>
+                </div>
+
+                <!-- Service 10 -->
+                <div class="service-card glass-panel reveal-up" style="transition-delay: 0.9s;">
+                    <div class="service-icon"><i class="fas fa-taxi"></i></div>
+                    <h3 data-i18n="svc10_title">خدمة تاكسي ٢٤×٧ في جميع أنحاء الهند</h3>
+                    <p data-i18n="svc10_desc">خدمات سيارات أجرة على مدار الساعة تغطي كل ركن من أركان الهند — موثوقة ومريحة وبأسعار معقولة.</p>
+                </div>
+
+                <!-- Service 11 -->
+                <div class="service-card glass-panel reveal-up" style="transition-delay: 1.0s;">
+                    <div class="service-icon"><i class="fas fa-place-of-worship"></i></div>
+                    <h3 data-i18n="svc11_title">رحلات الحجاج</h3>
+                    <p data-i18n="svc11_desc">رحلات حج روحانية إلى وجهات مقدسة عبر الهند وخارجها، مصممة بتقدير واحترام.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery / Destinations Section -->
+    <section class="destinations section-padding bg-light" id="destinations">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h4 class="subtitle" data-i18n="dest_subtitle">معرض الصور</h4>
+                <h2 class="title" data-i18n="dest_title">وجهات مميزة</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="masonry-gallery reveal-up">
+                <div class="gallery-item item-large">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Dubai">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3 data-i18n="dest_dubai">دبي، الإمارات</h3>
+                            <p data-i18n="dest_dubai_desc">فخامة وعجائب حديثة</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Beach Resort">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3 data-i18n="dest_maldives">المالديف</h3>
+                            <p data-i18n="dest_maldives_desc">جنة استوائية</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item item-tall">
+                    <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=2020&auto=format&fit=crop" alt="Paris">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3 data-i18n="dest_paris">باريس، فرنسا</h3>
+                            <p data-i18n="dest_paris_desc">مدينة الحب</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item item-tall">
+                    <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1983&auto=format&fit=crop" alt="Venice">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3 data-i18n="dest_venice">البندقية، إيطاليا</h3>
+                            <p data-i18n="dest_venice_desc">رومانسيات تاريخية</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?q=80&w=2070&auto=format&fit=crop" alt="Mountains">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3 data-i18n="dest_swiss">جبال الألب السويسرية</h3>
+                            <p data-i18n="dest_swiss_desc">أرض العجائب الشتوية</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item item-wide">
+                    <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=2073&auto=format&fit=crop" alt="Kerala Backwaters" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3 data-i18n="dest_kerala">كيرالا، الهند</h3>
+                            <p data-i18n="dest_kerala_desc">أرض الله الخاصة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="center-btn reveal-up" style="margin-top: 4rem; text-align: center;">
+                <a href="#contact" class="btn btn-outline" style="border-color: var(--deep-brown); color: var(--deep-brown);" data-i18n="dest_view_all"><i class="fas fa-arrow-left"></i> عرض جميع الباقات</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Locations Section -->
+    <section class="locations-section section-padding" id="locations">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h4 class="subtitle" data-i18n="loc_subtitle">أين نحن</h4>
+                <h2 class="title" data-i18n="loc_title">مواقع مكاتبنا</h2>
+                <div class="title-line"></div>
+                <p class="locations-intro reveal-up" data-i18n="loc_intro">مع تواجد قوي في جميع أنحاء كيرالا ومكتب دولي قادم، نحن دائماً قريبون منك.</p>
+            </div>
+            <div class="locations-grid">
+                <div class="location-card glass-panel reveal-up">
+                    <div class="location-icon hq"><i class="fas fa-star"></i></div>
+                    <div class="location-badge" data-i18n="loc_hq">المقر الرئيسي</div>
+                    <h3 data-i18n="loc_guruvayur">غوروفايور</h3>
+                    <p data-i18n="loc_kerala_india">كيرالا، الهند</p>
+                    <span class="location-status active" data-i18n="loc_active">نشط</span>
+                </div>
+                <div class="location-card glass-panel reveal-up" style="transition-delay: 0.1s;">
+                    <div class="location-icon"><i class="fas fa-city"></i></div>
+                    <h3 data-i18n="loc_cochin">كوتشين</h3>
+                    <p data-i18n="loc_kerala_india">كيرالا، الهند</p>
+                    <span class="location-status active" data-i18n="loc_active">نشط</span>
+                </div>
+                <div class="location-card glass-panel reveal-up" style="transition-delay: 0.2s;">
+                    <div class="location-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3 data-i18n="loc_kasaragod">كاساراغود</h3>
+                    <p data-i18n="loc_kerala_india">كيرالا، الهند</p>
+                    <span class="location-status active" data-i18n="loc_active">نشط</span>
+                </div>
+                <div class="location-card glass-panel reveal-up" style="transition-delay: 0.3s;">
+                    <div class="location-icon uae"><i class="fas fa-plane-arrival"></i></div>
+                    <div class="location-badge upcoming" data-i18n="loc_coming_soon">قريباً</div>
+                    <h3 data-i18n="loc_uae">الإمارات</h3>
+                    <p data-i18n="loc_uae_full">الإمارات العربية المتحدة</p>
+                    <span class="location-status upcoming-status" data-i18n="loc_uae_date">٢٣ مايو ٢٠٢٦</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission Section -->
+    <section class="vision-mission section-padding" id="vision">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h4 class="subtitle" data-i18n="vm_subtitle">من نحن</h4>
+                <h2 class="title" data-i18n="vm_title">رؤيتنا ومهمتنا</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="vm-grid">
+                <div class="vm-card vision-card glass-panel reveal-left">
+                    <div class="vm-icon"><i class="fas fa-eye"></i></div>
+                    <h3 data-i18n="vm_vision_title">رؤيتنا</h3>
+                    <p data-i18n="vm_vision_desc">أن نكون منظمة موثوقة ومحترمة معروفة بالتميز والنزاهة والنمو المستدام، نقدم قيمة دائمة للعملاء والموظفين وأصحاب المصلحة.</p>
+                </div>
+                <div class="vm-card mission-card glass-panel reveal-right">
+                    <div class="vm-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3 data-i18n="vm_mission_title">مهمتنا</h3>
+                    <p data-i18n="vm_mission_desc">مهمتنا هي تقديم منتجات وخدمات عالية الجودة من خلال الاحترافية والابتكار والممارسات الأخلاقية. نحن ملتزمون بالتحسين المستمر ورضا العملاء والعمل الجماعي والعمليات التجارية المسؤولة التي تساهم إيجاباً في المجتمع والنجاح طويل الأمد.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section-padding bg-light" id="about">
+        <!-- 3D Globe Placeholder Background Effect -->
+        <div class="globe-container" id="globe-container"></div>
+        <div class="container about-container">
+            <div class="about-image reveal-left">
+                <div class="image-wrapper glass-panel tilt-card">
+                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Airplane Over Clouds">
+                    <div class="iso-badge">
+                        <i class="fas fa-certificate"></i>
+                        <span data-i18n="about_iso_label">ISO 9001:2015</span>
+                        <small data-i18n="about_iso_sub">معتمد</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-content reveal-right">
+                <h4 class="subtitle" data-i18n="about_subtitle">قصتنا</h4>
+                <h2 class="title" data-i18n="about_title">نصنع رحلات فاخرة منذ التأسيس</h2>
+                <p class="about-text" data-i18n="about_text1">يقع مقرنا في مدينة غوروفايور الغنية ثقافياً في كيرالا، ونتوسع قريباً إلى الإمارات. أو كرييشن للسفر والسياحة هي وكالة رائدة معتمدة بشهادة ISO 9001:2015 مكرسة لتحويل أحلام سفرك إلى حقائق مذهلة وملموسة.</p>
+                <p class="about-text" data-i18n="about_text2">مع التزام عميق بالجودة ونهج سينمائي لتجربة العالم، نحن لا نحجز رحلات فحسب — بل نصنع قصصاً. نضمن التعامل مع كل تفصيل بدقة.</p>
+                
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> <span data-i18n="about_feat1">ضمان أفضل سعر</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span data-i18n="about_feat2">دعم مخصص على مدار الساعة</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span data-i18n="about_feat3">انتشار عالمي</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span data-i18n="about_feat4">برامج رحلات مخصصة بالكامل</span></li>
+                </ul>
+
+                <!-- Company Profile Download -->
+                <a href="assets/company-profile.pdf" download="OCreation_Company_Profile.pdf" class="btn-pdf-download" id="btn-download-profile">
+                    <span class="pdf-icon-wrap"><i class="fas fa-file-pdf"></i></span>
+                    <span class="pdf-text">
+                        <span class="pdf-label" data-i18n="about_pdf_label">ملف الشركة</span>
+                        <span class="pdf-sub" data-i18n="about_pdf_sub">تحميل PDF</span>
+                    </span>
+                    <span class="pdf-arrow"><i class="fas fa-download"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership / Words from the Team -->
+    <section class="leadership section-padding" id="leadership">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h4 class="subtitle" data-i18n="leader_subtitle">كلمات من قادتنا</h4>
+                <h2 class="title" data-i18n="leader_title">تعرّف على فريق أو كرييشن</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="leadership-grid">
+
+                <!-- CEO -->
+                <div class="leader-card glass-panel reveal-up" id="leader-ceo">
+                    <div class="leader-avatar">
+                        <div class="avatar-ring ceo-ring"></div>
+                        <div class="avatar-initials">FK</div>
+                    </div>
+                    <div class="leader-badge ceo-badge" data-i18n="leader_ceo_badge">الرئيس التنفيذي</div>
+                    <h3 class="leader-name" data-i18n="leader_ceo_name">فاضل كالايل</h3>
+                    <p class="leader-title" data-i18n="leader_ceo_title">الرئيس التنفيذي</p>
+                    <blockquote class="leader-quote" data-i18n="leader_ceo_quote">
+                        &ldquo;في أو كرييشن، نؤمن بأن الإبداع لديه القدرة على تحويل الأعمال وتشكيل هويات تجارية قوية. مهمتنا هي تقديم حلول تصميم مبتكرة واتصالات استراتيجية تساعد عملاءنا على التميز في سوق تنافسي. مع فريق شغوف وفهم عميق للعلامات التجارية والتصميم والاتصالات الرقمية، نعمل بشكل وثيق مع عملائنا لتحويل الأفكار إلى حقائق مؤثرة. نظل ملتزمين بالإبداع والجودة وبناء شراكات طويلة الأمد تقود النجاح والنمو.&rdquo;
+                    </blockquote>
+                    <div class="leader-divider"></div>
+                </div>
+
+                <!-- General Manager -->
+                <div class="leader-card glass-panel reveal-up" id="leader-gm" style="transition-delay: 0.15s;">
+                    <div class="leader-avatar">
+                        <div class="avatar-ring gm-ring"></div>
+                        <div class="avatar-initials">MN</div>
+                    </div>
+                    <div class="leader-badge gm-badge" data-i18n="leader_gm_badge">المدير العام</div>
+                    <h3 class="leader-name" data-i18n="leader_gm_name">محمد ناهيل</h3>
+                    <p class="leader-title" data-i18n="leader_gm_title">المدير العام</p>
+                    <blockquote class="leader-quote" data-i18n="leader_gm_quote">
+                        &ldquo;في أو كرييشن، نؤمن بأن المساحات الرائعة تبدأ بأفكار رائعة. تركيزنا على تقديم تصاميم مبتكرة وجودة استثنائية وقيمة دائمة في كل مشروع نقوم به. مع فريقنا الموهوب وشركائنا الموثوقين، نواصل تشكيل مساحات تلهم وتصمد أمام اختبار الزمن.&rdquo;
+                    </blockquote>
+                    <div class="leader-divider"></div>
+                </div>
+
+                <!-- Operations & Admin -->
+                <div class="leader-card glass-panel reveal-up" id="leader-admin" style="transition-delay: 0.3s;">
+                    <div class="leader-avatar">
+                        <div class="avatar-ring admin-ring"></div>
+                        <div class="avatar-initials">RS</div>
+                    </div>
+                    <div class="leader-badge admin-badge" data-i18n="leader_admin_badge">الإدارة</div>
+                    <h3 class="leader-name" data-i18n="leader_admin_name">رينشانا شيرين</h3>
+                    <p class="leader-title" data-i18n="leader_admin_title">العمليات والإدارة</p>
+                    <blockquote class="leader-quote" data-i18n="leader_admin_quote">
+                        &ldquo;وراء كل مشروع ناجح في أو كرييشن أساس قوي من الإدارة الفعالة والعمل الجماعي. التزامنا هو ضمان التنسيق السلس والاحترافية والدعم عبر جميع العمليات، مما يمكّن الإبداع والتميز من الازدهار.&rdquo;
+                    </blockquote>
+                    <div class="leader-divider"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Reviews Section -->
+    <section class="reviews-section section-padding" id="reviews">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h4 class="subtitle" data-i18n="reviews_subtitle">ماذا يقول عملاؤنا</h4>
+                <h2 class="title" data-i18n="reviews_title">تقييمات جوجل</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card glass-panel">
+                    <div class="review-header">
+                        <div class="review-initials" style="background:var(--warm-gold); color:#1A0F0A;">MS</div>
+                        <div class="review-author">
+                            <span class="review-name">muhammed shafi</span>
+                            <span class="review-meta" data-i18n="review1_meta">٣ تقييمات · صورة واحدة</span>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span style="font-family: var(--font-sans); font-size: 0.8rem; color: rgba(45,26,17,0.5); margin-left: 5px;" data-i18n="review1_time">منذ شهر</span>
+                    </div>
+                    <p class="review-text" data-i18n="review1_text">خدمة ممتازة. مقدّرة، ونتطلع للتعاون.</p>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="review-card glass-panel">
+                    <div class="review-header">
+                        <div class="review-initials" style="background:#4A6266; color:#fff;">P</div>
+                        <div class="review-author">
+                            <span class="review-name">Pravitha Prabhakaran</span>
+                            <span class="review-meta" data-i18n="review2_meta">٦ تقييمات</span>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span style="font-family: var(--font-sans); font-size: 0.8rem; color: rgba(45,26,17,0.5); margin-left: 5px;" data-i18n="review2_time">منذ ١٠ أشهر</span>
+                    </div>
+                    <p class="review-text" data-i18n="review2_text">طاقم ودود مع خدمة واتصالات ممتازة. نحجز جميع رحلاتنا معهم منذ عامين وفي كل مرة يقدمون أفضل خدمة.</p>
+                </div>
+                
+                <!-- Review 3 -->
+                <div class="review-card glass-panel">
+                    <div class="review-header">
+                        <div class="review-initials" style="background:#D1E8E2; color:#1A0F0A;">R</div>
+                        <div class="review-author">
+                            <span class="review-name">Ramya C.M</span>
+                            <span class="review-meta" data-i18n="review3_meta">تقييمان</span>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span style="font-family: var(--font-sans); font-size: 0.8rem; color: rgba(45,26,17,0.5); margin-left: 5px;" data-i18n="review3_time">منذ ١٠ أشهر</span>
+                    </div>
+                    <p class="review-text" data-i18n="review3_text">خدمة ممتازة. راضون واستمروا بنفس الطريقة 👍 ...</p>
+                </div>
+            </div>
+            
+            <div class="reviews-btn-wrapper" style="margin-top: 2rem;">
+                <a href="https://www.google.com/maps/place/O+CREATION/@10.5801877,73.6011036,8z/data=!4m12!1m2!2m1!1sO+CREATIONS!3m8!1s0x3ba795aba3102d01:0x4e50243219a049a!8m2!3d10.5801877!4d76.0400684!9m1!1b1!15sCgtPIENSRUFUSU9OU1oNIgtvIGNyZWF0aW9uc5IBDXRyYXZlbF9hZ2VuY3ngAQA!16s%2Fg%2F11xfj2v0k_?entry=ttu&g_ep=EgoyMDI2MDMzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn btn-outline btn-lg" style="margin-top: 1rem;" data-i18n="reviews_btn"><i class="fab fa-google" style="margin-right:8px;"></i> استكشف المزيد من التقييمات</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Highlights Section -->
+    <section class="instagram-section section-padding" id="moments">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h4 class="subtitle" data-i18n="insta_subtitle">انضم إلى رحلتنا</h4>
+                <h2 class="title" style="color: var(--deep-brown);" data-i18n="insta_title">أبرز لحظات إنستغرام</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="instagram-reel-container reveal-up">
+                <iframe src="https://www.instagram.com/reel/DUi69HHD01O/embed" 
+                        width="100%" 
+                        height="580" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        allowtransparency="true"
+                        style="max-width: 400px; display: block; margin: 0 auto;">
+                </iframe>
+            </div>
+            
+            <div class="instagram-cta reveal-up" style="margin-top: 3rem;">
+                <a href="https://instagram.com/ocreation.in" target="_blank" class="btn btn-outline btn-lg" style="color: var(--deep-brown); border-color: var(--deep-brown);" data-i18n="insta_cta">تابعنا على إنستغرام</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Enquiry Section -->
+    <section class="contact section-padding" id="contact">
+        <div class="container contact-container">
+            <div class="contact-info reveal-left">
+                <h4 class="subtitle" data-i18n="contact_subtitle">تواصل معنا</h4>
+                <h2 class="title" style="color: var(--cream);" data-i18n="contact_title">لنخطط لرحلتك القادمة</h2>
+                <p class="contact-desc" data-i18n="contact_desc">مستعد للانطلاق في رحلة العمر؟ املأ نموذج الاستفسار وسيتواصل معك خبراء السفر لدينا ببرنامج رحلة حصري.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="info">
+                            <h5 data-i18n="contact_phone_label">الهاتف</h5>
+                            <p data-i18n="contact_phone1">+91 96335 08640 (٢٤×٧)</p>
+                            <p data-i18n="contact_phone2">+91 99959 18620 (كاساراغود)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="icon"><i class="fab fa-instagram"></i></div>
+                        <div class="info">
+                            <h5 data-i18n="contact_insta_label">إنستغرام</h5>
+                            <p><a href="https://instagram.com/ocreation.in" target="_blank" style="color: var(--cream); text-decoration: none;">@ocreation.in</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info">
+                            <h5 data-i18n="contact_loc_label">المواقع</h5>
+                            <p data-i18n="contact_loc1">غوروفايور (المقر الرئيسي)</p>
+                            <p data-i18n="contact_loc2">كوتشين، كيرالا</p>
+                            <p data-i18n="contact_loc3">كاساراغود، كيرالا</p>
+                            <p data-i18n="contact_loc4">الإمارات (التوسع قريباً)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-wrapper glass-panel reveal-right">
+                <form class="contact-form" id="enquiry-form" onsubmit="sendWhatsAppEnquiry(event)">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="name" data-i18n="form_fname">الاسم الأول <span style="color:var(--warm-gold)">*</span></label>
+                            <input type="text" id="name" required placeholder="محمد" data-i18n-ph="ph_fname">
+                        </div>
+                        <div class="input-group">
+                            <label for="phone" data-i18n="form_mobile">رقم الجوال <span style="color:var(--warm-gold)">*</span></label>
+                            <input type="tel" id="phone" required placeholder="+91 XXXXX XXXXX" data-i18n-ph="ph_mobile">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="email" data-i18n="form_email">البريد الإلكتروني</label>
+                            <input type="email" id="email" required placeholder="mohammed@example.com" data-i18n-ph="ph_email">
+                        </div>
+                        <div class="input-group">
+                            <label for="travelType" data-i18n="form_travel_type">نوع السفر</label>
+                            <select id="travelType">
+                                <option value="Domestic & Int. Tours" data-i18n="opt_domestic">جولات محلية ودولية</option>
+                                <option value="Honeymoon Packages" data-i18n="opt_honeymoon">باقات شهر العسل</option>
+                                <option value="Educational Tours" data-i18n="opt_educational">الرحلات التعليمية</option>
+                                <option value="Visa & Passport Assist" data-i18n="opt_visa">مساعدة التأشيرة وجواز السفر</option>
+                                <option value="Hotel & Flight Bookings" data-i18n="opt_hotel_flight">حجوزات الفنادق والطيران</option>
+                                <option value="Group & Corporate Tours" data-i18n="opt_group">رحلات المجموعات والشركات</option>
+                                <option value="Hajj & Umrah Services" data-i18n="opt_hajj">خدمات الحج والعمرة</option>
+                                <option value="24x7 Taxi Kerala" data-i18n="opt_taxi">تاكسي ٢٤×٧ كيرالا</option>
+                                <option value="Solo Trips" data-i18n="opt_solo">رحلات فردية</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="travelers" data-i18n="form_travelers">عدد المسافرين</label>
+                            <input type="number" id="travelers" min="1" placeholder="٢" data-i18n-ph="ph_travelers">
+                        </div>
+                        <div class="input-group">
+                            <label for="destination" data-i18n="form_destination">الوجهة</label>
+                            <input type="text" id="destination" placeholder="إلى أين تريد الذهاب؟" data-i18n-ph="ph_destination">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="dates-start" data-i18n="form_start_date">تاريخ البداية</label>
+                            <input type="date" id="dates-start">
+                        </div>
+                        <div class="input-group">
+                            <label for="dates-end" data-i18n="form_end_date">تاريخ النهاية</label>
+                            <input type="date" id="dates-end">
+                        </div>
+                    </div>
+                    
+
+                    
+                    <div class="input-group">
+                        <label for="message" data-i18n="form_message">رسالة إضافية</label>
+                        <textarea id="message" rows="4" placeholder="أي طلبات خاصة؟" data-i18n-ph="ph_message"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-full" data-i18n="form_submit">
+                        <i class="fab fa-whatsapp" style="margin-left:8px; font-size:1.2rem;"></i>أرسل الاستفسار عبر واتساب
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#home" class="logo-link footer-logo-link">
+                    <img src="assets/logo.png" alt="O Creation" class="footer-logo-icon">
+                    <div class="footer-logo-text">
+                        <span class="footer-logo-name">O Creation</span>
+                        <span class="footer-logo-tagline">Travel &amp; Tourism</span>
+                    </div>
+                </a>
+                <p data-i18n="footer_desc">نحوّل الأحلام إلى حقيقة. <br>شريكك المميز في السفر في غوروفايور والإمارات.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/ocreation.in" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3 data-i18n="footer_quick_links">روابط سريعة</h3>
+                <ul>
+                    <li><a href="#home" data-i18n="footer_home">الرئيسية</a></li>
+                    <li><a href="#services" data-i18n="footer_services">الخدمات</a></li>
+                    <li><a href="#destinations" data-i18n="footer_destinations">الوجهات</a></li>
+                    <li><a href="#about" data-i18n="footer_about">من نحن</a></li>
+                    <li><a href="#vision" data-i18n="footer_vision">الرؤية والمهمة</a></li>
+                    <li><a href="#leadership" data-i18n="footer_team">فريقنا</a></li>
+                    <li><a href="#contact" data-i18n="footer_contact">تواصل</a></li>
+                    <li><a href="assets/company-profile.pdf" download="OCreation_Company_Profile.pdf"><i class="fas fa-file-pdf" style="margin-right:6px; color:var(--warm-gold);"></i><span data-i18n="footer_profile">ملف الشركة</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-services">
+                <h3 data-i18n="footer_our_services">خدماتنا</h3>
+                <ul>
+                    <li data-i18n="footer_svc_honeymoon">باقات شهر العسل</li>
+                    <li data-i18n="footer_svc_domestic">جولات محلية ودولية</li>
+                    <li data-i18n="footer_svc_educational">الرحلات التعليمية</li>
+                    <li data-i18n="footer_svc_hajj">الحج والعمرة</li>
+                    <li data-i18n="footer_svc_solo">رحلات فردية</li>
+                    <li data-i18n="footer_svc_visa">مساعدة التأشيرة وجواز السفر</li>
+                    <li data-i18n="footer_svc_hotel">حجز الفنادق والمنتجعات</li>
+                    <li data-i18n="footer_svc_taxi">تاكسي ٢٤×٧ الهند</li>
+                    <li data-i18n="footer_svc_pilgrim">رحلات الحجاج</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom container">
+            <p data-i18n="footer_copy">&copy; ٢٠٢٦ أو كرييشن للسفر والسياحة. جميع الحقوق محفوظة.</p>
+            <p data-i18n="footer_iso">معتمد ISO 9001:2015</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919633508640" target="_blank" rel="noopener noreferrer"
+       class="whatsapp-float" id="whatsapp-float" aria-label="Chat on WhatsApp">
+        <div class="wa-icon-wrap">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <span class="wa-label" data-i18n="wa_label">تحدث معنا</span>
+        <div class="wa-ping"></div>
+    </a>
+
+    <!-- Scripts -->
+    <!-- GSAP for Advanced Animations -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Lenis for Smooth Scrolling -->
+    <script defer src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <!-- Three.js for 3D globe effect -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Translations & i18n -->
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
+    <!-- Custom JS -->
+    <script defer src="js/main.js"></script>
+</body>
+</html>
